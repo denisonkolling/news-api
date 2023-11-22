@@ -1,2 +1,24 @@
-package com.example.newsapi.model;public class Usuario {
+package com.example.newsapi.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+@Entity
+@Table(name = "USUARIOS")
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String nomeUsuario;
+
+    private String senha;
+
 }
