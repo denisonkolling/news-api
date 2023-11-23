@@ -13,7 +13,7 @@ public class RevisorService {
     @Autowired
     RevisorRepository revisorRepository;
 
-    public Revisor cadastrarRevisor(Revisor revisor) {
+    public Revisor criarRevisor(Revisor revisor) {
         return revisorRepository.save(revisor);
     }
 

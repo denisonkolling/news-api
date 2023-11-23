@@ -13,7 +13,7 @@ public class JornalistaService {
     @Autowired
     JornalistaRepository jornalistaRepository;
 
-    public Jornalista cadastrarJornalista(Jornalista jornalista) {
+    public Jornalista criarJornalista(Jornalista jornalista) {
         return jornalistaRepository.save(jornalista);
     }
 

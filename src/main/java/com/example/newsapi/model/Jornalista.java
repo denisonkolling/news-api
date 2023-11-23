@@ -25,7 +25,7 @@ public class Jornalista {
 
     private Integer numeroPublicacoes;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 

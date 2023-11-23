@@ -13,7 +13,7 @@ public class NoticiaService {
     @Autowired
     NoticiaRepository noticiaRepository;
 
-    public Noticia cadastrarNoticia(Noticia noticia) {
+    public Noticia criarNoticia(Noticia noticia) {
         return noticiaRepository.save(noticia);
     }
 

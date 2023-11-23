@@ -23,11 +23,11 @@ public class Noticia {
 
     private String textoNoticia;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_revisor")
     private Revisor revisor;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_jornalista")
     private Jornalista jornalista;
 
