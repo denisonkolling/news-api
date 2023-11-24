@@ -22,7 +22,7 @@ public class UsuarioService {
     private final Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 
     public Usuario criarUsuario(Usuario usuario) {
-        logger.info("Usuário criado: " + usuario.getNomeUsuario() + " Data: " + LocalDateTime.now());
+        logger.info("Usuário criado: " + usuario.getNome() + " Data: " + LocalDateTime.now());
         return usuarioRepository.save(usuario);
     }
 
