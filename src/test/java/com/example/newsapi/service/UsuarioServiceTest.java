@@ -1,5 +1,6 @@
 package com.example.newsapi.service;
 
+import com.example.newsapi.model.UserRole;
 import com.example.newsapi.model.Usuario;
 import com.example.newsapi.repository.UsuarioRepository;
 import org.junit.jupiter.api.Test;
@@ -26,7 +27,7 @@ class UsuarioServiceTest {
     @Test
     void criarUsuario() {
 
-        Usuario usuario = new Usuario(1,"nome", "senha");
+        Usuario usuario = new Usuario(1,"nome", "senha", UserRole.ADMIN);
 
         when(repository.save(any())).thenReturn(usuario);
 
@@ -41,7 +42,7 @@ class UsuarioServiceTest {
     @Test
     void listarUsuarios() {
 
-        List<Usuario> usuarios = List.of(new Usuario(1,"nome", "senha"));
+        List<Usuario> usuarios = List.of(new Usuario(1,"nome", "senha", UserRole.ADMIN));
 
         when(repository.findAll()).thenReturn(usuarios);
 

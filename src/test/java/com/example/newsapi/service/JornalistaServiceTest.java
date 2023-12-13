@@ -2,6 +2,7 @@ package com.example.newsapi.service;
 
 import com.example.newsapi.model.Jornalista;
 import com.example.newsapi.model.Revisor;
+import com.example.newsapi.model.UserRole;
 import com.example.newsapi.model.Usuario;
 import com.example.newsapi.repository.JornalistaRepository;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ class JornalistaServiceTest {
     @Test
     void criarJornalista() {
 
-        Jornalista jornalista = new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(1,"nome", "senha"));
+        Jornalista jornalista = new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(1,"nome", "senha", UserRole.ADMIN));
 
         when(repository.save(any())).thenReturn(jornalista);
 
@@ -42,7 +43,7 @@ class JornalistaServiceTest {
     @Test
     void listarJornalistas() {
 
-        List<Jornalista> jornalistas = List.of(new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(1,"nome", "senha")));
+        List<Jornalista> jornalistas = List.of(new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(1,"nome", "senha", UserRole.ADMIN)));
 
         when(repository.findAll()).thenReturn(jornalistas);
 

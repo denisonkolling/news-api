@@ -1,9 +1,6 @@
 package com.example.newsapi.service;
 
-import com.example.newsapi.model.Jornalista;
-import com.example.newsapi.model.Noticia;
-import com.example.newsapi.model.Revisor;
-import com.example.newsapi.model.Usuario;
+import com.example.newsapi.model.*;
 import com.example.newsapi.repository.NoticiaRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,8 +30,8 @@ class NoticiaServiceTest {
 
         Noticia noticia =
                 new Noticia(1, "Título da Notícia", "Conteúdo da notícia fictícia...",
-                new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha")),
-                new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(2,"nome", "senha")),
+                new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha", UserRole.ADMIN)),
+                new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(1,"nome", "senha", UserRole.ADMIN)),
                         LocalDateTime.now(), LocalDateTime.now());
 
         when(repository.save(any())).thenReturn(noticia);
@@ -51,8 +48,8 @@ class NoticiaServiceTest {
     void listarNoticias() {
 
         List<Noticia> noticias = List.of(new Noticia(1, "Título da Notícia", "Conteúdo da notícia fictícia...",
-                new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha")),
-                new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(2,"nome", "senha")),
+                new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha", UserRole.ADMIN)),
+                new Jornalista(1,"nome", 3800.00, "cargo", 25, new Usuario(1,"nome", "senha", UserRole.ADMIN)),
                 LocalDateTime.now(), LocalDateTime.now()));
 
         when(repository.findAll()).thenReturn(noticias);

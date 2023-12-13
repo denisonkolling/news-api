@@ -1,6 +1,7 @@
 package com.example.newsapi.service;
 
 import com.example.newsapi.model.Revisor;
+import com.example.newsapi.model.UserRole;
 import com.example.newsapi.model.Usuario;
 import com.example.newsapi.repository.RevisorRepository;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,7 @@ class RevisorServiceTest {
     @Test
     void criarRevisor() {
 
-        Revisor revisor = new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha"));
+        Revisor revisor = new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha", UserRole.ADMIN));
 
         when(repository.save(any())).thenReturn(revisor);
 
@@ -41,7 +42,7 @@ class RevisorServiceTest {
     @Test
     void listarRevisor() {
 
-        List<Revisor> revisores = List.of(new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha")));
+        List<Revisor> revisores = List.of(new Revisor(1,"nome", 3800.00, "cargo", new Usuario(1,"nome", "senha", UserRole.ADMIN)));
 
         when(repository.findAll()).thenReturn(revisores);
 
